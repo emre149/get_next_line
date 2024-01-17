@@ -13,7 +13,7 @@
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include <fnctl.h>
+# include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
 
@@ -35,5 +35,7 @@ void	list_creation(t_list **list, int fd);
 char	*get_line(t_list *list);
 
 t_list	*ft_lstlast(t_list *lst);
+
+# endif
 
 # endif

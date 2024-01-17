@@ -52,7 +52,7 @@ void	list_creation(t_list **list, int fd)
 	}
 }
 
-char	*get_line(t_list *list)
+char	*get_line_of(t_list *list) // me permet d'obtenir le total de la ligne chainee
 {
 	int		total_str_len;
 	char	*next_str;
