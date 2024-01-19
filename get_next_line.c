@@ -12,6 +12,31 @@
 
 #include "get_next_line.h"
 
+void	mr_propre(t_list **list)
+{
+	t_list	*last_node;
+	t_list	*clean_node;
+	int		i;
+	int		j;
+	char	*buffer;
+
+	i = 0;
+	j = 0;
+	buffer = malloc(sizeof(BUFFER_SIZE + 1));
+	clean_node = malloc(sizeof(t_list));
+	if (!buffer || !clean_node)
+		return ;
+	last_node = ft_lstlast(*list);
+	while (last_node->str_buf[i] && last_node->str_buf[i] != '\n')
+		++i;
+	while (last_node->str_buf[i] && last_node->str_buf[++i])
+		buffer[j++] = last_node->str_buf[i];
+	buffer[j] = '\0';
+	clean_node->str_buf = buffer;
+	clean_node->next = NULL;
+	dealloc(list, clean_node, buffer);
+}
+
 void	add(t_list **list, char *buf)
 {
 	t_list	*new_element;

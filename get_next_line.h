@@ -12,13 +12,13 @@
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10
+# endif
 
 typedef struct s_list
 {
@@ -32,10 +32,16 @@ void	add(t_list **list, char *buf);
 
 void	list_creation(t_list **list, int fd);
 
-char	*get_line(t_list *list);
+char	*get_line_of(t_list *list);
 
 t_list	*ft_lstlast(t_list *lst);
 
-# endif
+void	ft_lststrcpy(t_list *lst, char *str);
+
+void	mr_propre(t_list **list);
+
+int	buf_str_len(t_list *lst);
+
+void	add(t_list **list, char *buf);
 
 # endif
