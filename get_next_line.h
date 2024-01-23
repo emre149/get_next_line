@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:03:26 by ededemog          #+#    #+#             */
-/*   Updated: 2024/01/08 16:20:39 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/01/23 19:56:59 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,12 @@ void	ft_lststrcpy(t_list *lst, char *str);
 
 void	mr_propre(t_list **list);
 
-int	buf_str_len(t_list *lst);
+int		buf_str_len(t_list *lst);
 
 void	add(t_list **list, char *buf);
+
+int		newline(t_list *list);
+
+void	dealloc(t_list **list, t_list *clean_node, char *buf);
 
 # endif

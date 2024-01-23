@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 10:00:56 by ededemog          #+#    #+#             */
-/*   Updated: 2024/01/08 13:33:57 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/01/23 19:23:35 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,26 @@ t_list	*ft_lstlast(t_list *lst)
 	while (lst && lst->next)
 		lst = lst->next;
 	return (lst);
+}
+
+int	newline(t_list *list)
+{
+	int	i;
+
+	if (!list)
+		return (0);
+	while (list)
+	{
+		i = 0;
+		while (list->str_buf[i] && i < BUFFER_SIZE)
+		{
+			if (list->str_buf[i] == '\n')
+				return (1);
+			i++;
+		}
+		list = list->next;
+	}
+	return (0);
 }
 
 int	buf_str_len(t_list *lst)
@@ -52,7 +72,7 @@ void	ft_lststrcpy(t_list *lst, char *str)
 
 	i = 0;
 	if (!lst)
-		return (0);
+		return ;
 	while (lst)
 	{
 		j = 0;
@@ -64,9 +84,32 @@ void	ft_lststrcpy(t_list *lst, char *str)
 				str[i] = '\0';
 				return ;
 			}
-			str[i++] = lst->str_buf[i++];
+			str[i++] = lst->str_buf[j++];
 		}
 		lst = lst->next;
 	}
 	str[i] = '\0';
+}
+
+void	dealloc(t_list **list, t_list *clean_node, char *buf)
+{
+	t_list	*temp;
+
+	if (!*list)
+		return ;
+	while (*list)
+	{
+		temp = (*list)->next;
+		free((*list)->str_buf);
+		free(*list);
+		*list = temp;
+	}
+	*list = NULL;
+	if (clean_node->str_buf[0])
+		*list = clean_node;
+	else
+	{
+		free(buf);
+		free(clean_node);
+	}
 }

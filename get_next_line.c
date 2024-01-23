@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:03:31 by ededemog          #+#    #+#             */
-/*   Updated: 2024/01/09 12:29:30 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/01/23 19:40:53 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	add(t_list **list, char *buf)
 	last_element = ft_lstlast(*list);
 	new_element = malloc(sizeof(t_list));
 	if (!new_element)
-		return (NULL);
+		return ;
 	if (!last_element)
 		*list = new_element;
 	else
@@ -94,14 +94,35 @@ char	*get_line_of(t_list *list) // me permet d'obtenir le total de la ligne chai
 
 char	*get_next_line(int fd)
 {
-	static t_list	*list = NULL;
+	static t_list	*list;
 	char			*next_line;
 
+	list = NULL;
 	// cas d'erreur de lecture du fd
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &next_line, 0) < 0)
 		return (NULL);
 	list_creation(&list, fd);
-	if (list == NULL)
-		return (list);
+	if (!list)
+		return (NULL);
 	next_line = get_line_of(list);
+
+	mr_propre(&list);
+	return (next_line);
+}
+
+#include <stdio.h>
+
+int		main()
+{
+	int	nb;
+	int	fd;
+
+	nb = 0;
+
+	fd = open("text.txt", O_RDONLY);
+
+	while (nb < 5)
+	{
+		printf("%s", get_next_line(fd));
+	}
 }
