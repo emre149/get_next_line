@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:03:31 by ededemog          #+#    #+#             */
-/*   Updated: 2024/01/23 19:40:53 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/01/24 18:42:57 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	mr_propre(t_list **list)
 
 	i = 0;
 	j = 0;
-	buffer = malloc(sizeof(BUFFER_SIZE + 1));
+	buffer = malloc(BUFFER_SIZE + 1);
 	clean_node = malloc(sizeof(t_list));
 	if (!buffer || !clean_node)
 		return ;
@@ -85,7 +85,7 @@ char	*get_line_of(t_list *list) // me permet d'obtenir le total de la ligne chai
 	if (!list)
 		return (NULL);
 	total_str_len = buf_str_len(list);
-	next_str = malloc(sizeof(total_str_len) + 1);
+	next_str = malloc(total_str_len + 1);
 	if (!next_str)
 		return (NULL);
 	ft_lststrcpy(list, next_str);
@@ -109,7 +109,7 @@ char	*get_next_line(int fd)
 	mr_propre(&list);
 	return (next_line);
 }
-
+/*
 #include <stdio.h>
 
 int		main()
@@ -121,8 +121,10 @@ int		main()
 
 	fd = open("text.txt", O_RDONLY);
 
-	while (nb < 5)
+	while (nb <= 1)
 	{
 		printf("%s", get_next_line(fd));
+		nb++;
 	}
 }
+*/
