@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:03:31 by ededemog          #+#    #+#             */
-/*   Updated: 2024/01/24 18:42:57 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/01/25 17:35:46 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	mr_propre(t_list **list)
 	if (!buffer || !clean_node)
 		return ;
 	last_node = ft_lstlast(*list);
-	while (last_node->str_buf[i] && last_node->str_buf[i] != '\n')
+	while (last_node->str_buf[i] != '\0' && last_node->str_buf[i] != '\n')
 		++i;
-	while (last_node->str_buf[i] && last_node->str_buf[++i])
+	while (last_node->str_buf[i] != '\0' && last_node->str_buf[++i])
 		buffer[j++] = last_node->str_buf[i];
 	buffer[j] = '\0';
 	clean_node->str_buf = buffer;
@@ -109,7 +109,7 @@ char	*get_next_line(int fd)
 	mr_propre(&list);
 	return (next_line);
 }
-/*
+
 #include <stdio.h>
 
 int		main()
@@ -127,4 +127,3 @@ int		main()
 		nb++;
 	}
 }
-*/
