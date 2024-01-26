@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 04:00:29 by ededemog          #+#    #+#             */
-/*   Updated: 2024/01/26 06:51:38 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/01/26 06:57:35 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,16 @@
 int	newline(t_list *stash)
 {
 	int	i;
-	
+
 	i = 0;
 	if (!stash)
 		return (0);
-	while (jspquoi->content[++i] != '\n')
+	while (ft_lstlast(stash)->content[++i])
 	{
-
+		if (ft_lstlast(stash)->content[i] == '\n')
+			return (1);
 	}
+	return (0);
 }
 
 t_list	*ft_lstlast(t_list *list)

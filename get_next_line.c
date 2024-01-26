@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 04:00:18 by ededemog          #+#    #+#             */
-/*   Updated: 2024/01/26 05:19:23 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/01/26 07:39:35 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,35 @@ void	read_to_stash(int fd, t_list **stash, int *already_read_ptr)
 			return ;
 		}
 		tmp[*already_read_ptr] = '\0';
+		add(stash, tmp, *already_read_ptr);
 	}
+}
+
+void	add(t_list **stash, char *buf, int already_read)
+{
+	int		i;
+	t_list	*last_node;
+	t_list	*new_node;
+
+	i = 0;
+	new_node = malloc(sizeof(t_list));
+	if (!new_node)
+		return ;
+	new_node->next = NULL;
+	new_node->content = malloc(sizeof(char) * already_read + 1);
+	if (!new_node->content)
+		return ;
+	while (buf[i] && i < already_read)
+	{
+		new_node->content[i] = buf[i];
+		i++;
+	}
+	new_node->content[i] = '\0';
+	if (!*stash)
+	{	
+		*stash = new_node;
+		return ;
+	}
+	last_node = ft_lstlast(*stash);
+	last_node->next = new_node;
 }
