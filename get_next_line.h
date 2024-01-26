@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/07 14:03:26 by ededemog          #+#    #+#             */
-/*   Updated: 2024/01/23 19:56:59 by ededemog         ###   ########.fr       */
+/*   Created: 2024/01/26 04:00:05 by ededemog          #+#    #+#             */
+/*   Updated: 2024/01/26 05:19:12 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
@@ -17,35 +18,17 @@
 # include <stdlib.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 5
 # endif
 
 typedef struct s_list
 {
-	char			*str_buf;
+	char			*content;
 	struct s_list	*next;
 }	t_list;
 
 char	*get_next_line(int fd);
 
-void	add(t_list **list, char *buf);
+void	read_to_stash(int fd, t_list **stash, int *already_read_ptr);
 
-void	list_creation(t_list **list, int fd);
-
-char	*get_line_of(t_list *list);
-
-t_list	*ft_lstlast(t_list *lst);
-
-void	ft_lststrcpy(t_list *lst, char *str);
-
-void	mr_propre(t_list **list);
-
-int		buf_str_len(t_list *lst);
-
-void	add(t_list **list, char *buf);
-
-int		newline(t_list *list);
-
-void	dealloc(t_list **list, t_list *clean_node, char *buf);
-
-# endif
+#endif
