@@ -35,4 +35,16 @@ t_list	*ft_lstlast(t_list *list);
 
 int		newline(t_list *stash);
 
+void	stash_to_line(t_list *stash, char **line);
+
+void	line_allocation(char **line, t_list *stash);
+
+int		ft_strlen(const char *str);
+
+void	add(t_list **stash, char *buf, int already_read);
+
+void	free_stash(t_list *stash);
+
+void	clean(t_list **stash);
+
 #endif

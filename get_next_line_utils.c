@@ -33,3 +33,54 @@ t_list	*ft_lstlast(t_list *list)
 		list = list->next;
 	return (list);
 }
+
+void	line_allocation(char **line, t_list *stash)
+{
+	int	i;
+	int	len;
+
+	len = 0;
+	while (stash)
+	{
+		i = 0;
+		while (stash->content[i])
+		{
+			if (stash->content[i] == '\n')
+			{
+				len++;
+				break;
+			}
+			len++;
+			i++;
+		}
+		stash = stash->next;
+	}
+	*line = malloc(sizeof(char) * (len + 1));
+}
+
+int	ft_strlen(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str)
+	{
+		i++;
+	}
+	return (i);
+}
+
+void	free_stash(t_list *stash)
+{
+	t_list	*current_node;
+	t_list	*next_node;
+
+	current_node = stash;
+	while (current_node)
+	{
+		free(current_node->content);
+		next_node = current_node->next;
+		free(current_node);
+		current_node = next_node;
+	}
+}
