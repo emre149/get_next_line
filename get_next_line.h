@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 04:00:05 by ededemog          #+#    #+#             */
-/*   Updated: 2024/01/26 07:10:55 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/02/03 18:13:28 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_list
 
 char	*get_next_line(int fd);
 
-void	read_to_stash(int fd, t_list **stash, int *already_read_ptr);
+void	read_to_stash(int fd, t_list **stash);
 
 t_list	*ft_lstlast(t_list *list);
 

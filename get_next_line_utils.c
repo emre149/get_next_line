@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 04:00:29 by ededemog          #+#    #+#             */
-/*   Updated: 2024/01/26 06:57:35 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/02/03 18:26:06 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	line_allocation(char **line, t_list *stash)
 			if (stash->content[i] == '\n')
 			{
 				len++;
-				break;
+				break ;
 			}
 			len++;
 			i++;
@@ -63,10 +63,8 @@ int	ft_strlen(const char *str)
 	int	i;
 
 	i = 0;
-	while (str)
-	{
+	while (str[i])
 		i++;
-	}
 	return (i);
 }
 
