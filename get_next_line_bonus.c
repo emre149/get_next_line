@@ -6,11 +6,11 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 02:24:05 by ededemog          #+#    #+#             */
-/*   Updated: 2024/02/05 02:30:17 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/02/05 02:37:46 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-include "get_next_line_bonus.h"
+#include "get_next_line_bonus.h"
 
 char	*get_next_line(int fd)
 {
@@ -20,15 +20,15 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &line, 0) < 0)
 		return (NULL);
 	line = NULL;
-	read_to_stash(fd, &stash);
-	if (stash == NULL)
+	read_to_stash(fd, &stash[fd]);
+	if (stash[fd] == NULL)
 		return (NULL);
-	stash_to_line(stash, &line);
-	clean(&stash);
+	stash_to_line(stash[fd], &line);
+	clean(&stash[fd]);
 	if (line[0] == '\0')
 	{
-		free_stash(stash);
-		stash = NULL;
+		free_stash(stash[fd]);
+		stash[fd] = NULL;
 		free(line);
 		return (NULL);
 	}
