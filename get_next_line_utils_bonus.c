@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/26 04:00:29 by ededemog          #+#    #+#             */
-/*   Updated: 2024/02/03 18:26:06 by ededemog         ###   ########.fr       */
+/*   Created: 2024/02/05 02:28:03 by ededemog          #+#    #+#             */
+/*   Updated: 2024/02/05 02:28:23 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	newline(t_list *stash)
 {

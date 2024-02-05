@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/26 04:00:18 by ededemog          #+#    #+#             */
-/*   Updated: 2024/02/03 19:14:15 by ededemog         ###   ########.fr       */
+/*   Created: 2024/02/05 02:24:05 by ededemog          #+#    #+#             */
+/*   Updated: 2024/02/05 02:30:17 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+include "get_next_line_bonus.h"
 
 char	*get_next_line(int fd)
 {
-	static t_list	*stash = NULL;
+	static t_list	*stash[32768];
 	char			*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &line, 0) < 0)

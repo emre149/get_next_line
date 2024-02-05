@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/26 04:00:05 by ededemog          #+#    #+#             */
-/*   Updated: 2024/02/05 02:25:06 by ededemog         ###   ########.fr       */
+/*   Created: 2024/02/05 02:25:14 by ededemog          #+#    #+#             */
+/*   Updated: 2024/02/05 02:25:26 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
